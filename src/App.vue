@@ -1,27 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="d-flex flex-column min-vh-100">
+    <router-view></router-view>
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
-
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-});
+<script setup lang="ts">
+// Da Bootstrap keine Anbieter wie React-Komponenten benötigt,
+// ist diese Datei schlank und dient nur als Root-Komponente für das Routing.
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+/* Hier können globale Stile hinzugefügt werden, falls nötig.
+   Ansonsten reichen die Bootstrap-Klassen. */
 </style>
