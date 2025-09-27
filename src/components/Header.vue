@@ -1,7 +1,6 @@
 <template>
   <header class="navbar navbar-expand-md navbar-dark bg-primary-gradient shadow-sm py-1">
     <div class="container-fluid px-2 px-md-3 d-flex align-items-center">
-      <!-- Brand (kleiner, text-truncate) -->
       <router-link class="navbar-brand d-flex align-items-center text-decoration-none me-3" to="/" aria-label="Climate Transparency Startseite">
         <img src="@/assets/climate-logo.png" alt="" class="brand-logo" />
         <div class="brand-text d-none d-sm-flex flex-column ms-2 text-truncate">
@@ -23,7 +22,7 @@
         </ul>
       </nav>
 
-      <!-- Toggler (visible < md) -->
+      <!-- Mobile Nav (visible < md) -->
       <button
           class="navbar-toggler ms-auto d-md-none"
           type="button"
@@ -60,7 +59,6 @@ import * as bootstrap from 'bootstrap'
 const isDesktop = ref(window.matchMedia('(min-width: 768px)').matches)
 const navigationItems = ref([
   { name: 'Startseite', href: '/' },
-  { name: 'Daten', href: '/data' },
   { name: 'Über uns', href: '/about' },
   { name: 'Methodik', href: '/methodology' },
   { name: 'Kontakt', href: '/contact' }
@@ -93,48 +91,45 @@ function closeOffcanvas() {
   background: linear-gradient(90deg, #274151 0%, #2f7f6c 100%);
 }
 
-/* Brand / Logo kompakter machen */
+
 .brand-logo {
-  height: 34px;           /* kleiner als vorher */
+  height: 34px;
   width: 34px;
   object-fit: contain;
   flex-shrink: 0;
 }
 
-/* Textgrößen und Truncation */
+
 .brand-title {
   font-size: 0.95rem;
   line-height: 1;
   font-weight: 600;
 }
 
-/* Desktop nav: kompakter Abstand */
+/* Desktop nav */
 .navbar-nav .nav-link {
   color: rgba(255,255,255,0.92);
   padding: 0.25rem 0.5rem;
   white-space: nowrap;
 }
 
-/* active-link leicht hervorheben (Kontrast beachten) */
 .navbar-nav .nav-link.active {
   text-decoration: underline;
   text-underline-offset: 3px;
   color: #fff;
 }
 
-/* Header Gesamthöhe begrenzen */
 header.navbar {
   min-height: 48px;
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
 }
 
-/* Offcanvas: kleine Anpassungen für mobile */
 .offcanvas .nav-link {
   color: #222;
 }
 
-/* Utility: auf sehr kleinen Bildschirmen Subtitle verbergen */
+
 @media (max-width: 575.98px) {
   .brand-text small { display: none !important; }
 }

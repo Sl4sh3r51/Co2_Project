@@ -8,22 +8,18 @@
             Aktuelle Übersicht der größten Emittenten
           </p>
         </div>
-        <button class="btn btn-outline-secondary d-none d-md-flex align-items-center">
-          <i class="bi bi-download me-2"></i>
-          Daten herunterladen
-        </button>
       </div>
     </div>
     <div class="card-body">
       <div class="d-flex flex-column flex-md-row gap-3 mb-4">
         <div class="input-group flex-grow-1">
-          <span class="input-group-text"><i class="bi bi-search"></i></span>
           <input
               type="text"
               v-model="searchTerm"
               class="form-control"
               placeholder="Suchen nach Land, Unternehmen oder Sektor..."
           />
+          <span class="input-group-text"><i class="bi bi-search"></i></span>
         </div>
         <div class="d-flex gap-3">
           <select v-model="filterType" class="form-select">
@@ -31,17 +27,6 @@
             <option value="country">Länder</option>
             <option value="company">Unternehmen</option>
           </select>
-          <div class="dropdown">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-              <i class="bi bi-funnel me-2"></i>
-              Filter
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
         </div>
       </div>
 
@@ -104,6 +89,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import DOMPurify from 'dompurify';
 
 interface EmissionData {
   id: string;
@@ -142,6 +128,7 @@ const filteredData = computed(() => {
   }
 
   if (searchTerm.value) {
+    computed(() => DOMPurify.sanitize(searchTerm.value));
     data = data.filter(item =>
         item.name.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
         (item.sector && item.sector.toLowerCase().includes(searchTerm.value.toLowerCase())) ||

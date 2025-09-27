@@ -2,7 +2,6 @@
   <div class="d-flex flex-column min-vh-100">
     <Header />
     <div class="flex-grow-1 d-flex flex-column flex-md-row">
-      <Sidebar />
       <main class="flex-grow-1 p-4 p-md-8 overflow-y-auto">
         <section class="mb-5">
           <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
@@ -12,10 +11,6 @@
                 Detaillierte Analyse der CO2-Emissionen von Ländern und Unternehmen weltweit.
               </p>
             </div>
-            <a href="#download" class="btn btn-primary d-none d-md-flex align-items-center mt-3 mt-md-0">
-              <i class="bi bi-download me-2"></i>
-              Daten herunterladen
-            </a>
           </div>
         </section>
 
@@ -86,9 +81,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import {ref} from 'vue';
 import Header from '@/components/Header.vue';
-import Sidebar from '@/components/Sidebar.vue';
 import EmissionsTable from '@/components/EmissionTable.vue';
 import Footer from '@/components/Footer.vue';
 

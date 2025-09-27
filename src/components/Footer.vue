@@ -26,16 +26,6 @@
           </ul>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-2">
-          <h4 class="h6 text-uppercase mb-3">Schnellzugriff</h4>
-          <ul class="list-unstyled small">
-            <li><a href="#" class="text-reset text-decoration-none">Startseite</a></li>
-            <li><a href="#" class="text-reset text-decoration-none">Datenübersicht</a></li>
-            <li><a href="#" class="text-reset text-decoration-none">Methodik</a></li>
-            <li><a href="#" class="text-reset text-decoration-none">Presse</a></li>
-          </ul>
-        </div>
-
         <div class="col-12 col-md-6 col-lg-3">
           <h4 class="h6 text-uppercase mb-3">Rechtliches</h4>
           <ul class="list-unstyled small">
@@ -51,14 +41,12 @@
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
         <div class="text-muted small text-center text-md-start mb-2 mb-md-0">
           <p class="mb-0">
-            © 2024 Climate Transparency. Alle Rechte vorbehalten. |
-            <a href="/license" class="text-reset text-decoration-none">Creative Commons Attribution 4.0</a>
+            © 2024 Climate Transparency. Alle Rechte vorbehalten. | Creative Commons Attribution 4.0
           </p>
         </div>
         <div class="text-muted small text-center text-md-end">
           <p class="mb-0">
-            Letzte Datenaktualisierung: {{ new Date().toLocaleDateString('de-DE') }} |
-            <a href="/changelog" class="text-reset text-decoration-none">Changelog</a>
+            Letzte Datenaktualisierung: {{ new Date().toLocaleDateString('de-DE') }}
           </p>
         </div>
       </div>
