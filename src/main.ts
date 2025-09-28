@@ -28,6 +28,13 @@ const router = createRouter({
     routes,
 });
 
+// Nach jedem Routenwechsel Body-Overflow und Bootstrap-Überbleibsel zurücksetzen
+router.afterEach(() => {
+  document.body.style.overflow = '';
+  document.body.classList.remove('modal-open', 'offcanvas-open');
+  document.querySelectorAll('.modal-backdrop, .offcanvas-backdrop').forEach(el => el.remove());
+});
+
 createApp(App)
     .use(router)
     .mount('#app');

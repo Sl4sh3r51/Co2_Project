@@ -48,7 +48,10 @@
             </th>
             <th scope="col">Sektor / Land</th>
             <th scope="col">Jahr</th>
-            <th scope="col">Trend</th>
+            <th scope="col" @click="sortBy('trend')" class="cursor-pointer user-select-none">
+              Trend
+              <i v-if="sortKey === 'trend'" :class="sortDirection === 'asc' ? 'bi bi-arrow-up' : 'bi bi-arrow-down'"></i>
+            </th>
           </tr>
           </thead>
           <tbody>
@@ -113,6 +116,26 @@ const mockEmissionsData: EmissionData[] = [
   { id: "8", name: "Coal India", type: "company", co2Emissions: 612, sector: "Coal", country: "Indien", year: 2023, trend: "up" },
   { id: "9", name: "Indien", type: "country", co2Emissions: 2654, year: 2023, trend: "up" },
   { id: "10", name: "Russland", type: "country", co2Emissions: 2269, year: 2023, trend: "down" },
+  { id: "11", name: "Japan", type: "country", co2Emissions: 1147, year: 2023, trend: "down" },
+  { id: "12", name: "Kanada", type: "country", co2Emissions: 730, year: 2023, trend: "stable" },
+  { id: "13", name: "Brasilien", type: "country", co2Emissions: 476, year: 2023, trend: "up" },
+  { id: "14", name: "Australien", type: "country", co2Emissions: 419, year: 2023, trend: "up" },
+  { id: "15", name: "Vereinigtes Königreich", type: "country", co2Emissions: 331, year: 2023, trend: "down" },
+  { id: "16", name: "Frankreich", type: "country", co2Emissions: 302, year: 2023, trend: "down" },
+  { id: "17", name: "Südkorea", type: "country", co2Emissions: 659, year: 2023, trend: "stable" },
+  { id: "18", name: "Südafrika", type: "country", co2Emissions: 435, year: 2023, trend: "up" },
+  { id: "19", name: "Mexiko", type: "country", co2Emissions: 368, year: 2023, trend: "down" },
+  { id: "20", name: "Indonesien", type: "country", co2Emissions: 615, year: 2023, trend: "up" },
+  { id: "21", name: "Royal Dutch Shell", type: "company", co2Emissions: 900, sector: "Oil & Gas", country: "Niederlande", year: 2023, trend: "down" },
+  { id: "22", name: "BP", type: "company", co2Emissions: 850, sector: "Oil & Gas", country: "UK", year: 2023, trend: "down" },
+  { id: "23", name: "TotalEnergies", type: "company", co2Emissions: 790, sector: "Oil & Gas", country: "Frankreich", year: 2023, trend: "stable" },
+  { id: "24", name: "RWE", type: "company", co2Emissions: 540, sector: "Energy", country: "Deutschland", year: 2023, trend: "down" },
+  { id: "25", name: "Tata Steel", type: "company", co2Emissions: 480, sector: "Steel", country: "Indien", year: 2023, trend: "up" },
+  { id: "26", name: "Peabody Energy", type: "company", co2Emissions: 510, sector: "Coal", country: "USA", year: 2023, trend: "down" },
+  { id: "27", name: "Glencore", type: "company", co2Emissions: 470, sector: "Mining", country: "Schweiz", year: 2023, trend: "stable" },
+  { id: "28", name: "ENI", type: "company", co2Emissions: 430, sector: "Oil & Gas", country: "Italien", year: 2023, trend: "down" },
+  { id: "29", name: "Lukoil", type: "company", co2Emissions: 600, sector: "Oil & Gas", country: "Russland", year: 2023, trend: "up" },
+  { id: "30", name: "Sasol", type: "company", co2Emissions: 520, sector: "Chemicals", country: "Südafrika", year: 2023, trend: "up" },
 ];
 
 const searchTerm = ref('');
@@ -143,6 +166,15 @@ const filteredAndSortedData = computed(() => {
   const data = [...filteredData.value];
   if (sortKey.value) {
     data.sort((a, b) => {
+      if (sortKey.value === 'trend') {
+        // Sortierreihenfolge für Trend
+        const orderAsc = ['down', 'stable', 'up'];
+        const orderDesc = ['up', 'stable', 'down'];
+        const order = sortDirection.value === 'asc' ? orderAsc : orderDesc;
+        const aIndex = order.indexOf(a.trend);
+        const bIndex = order.indexOf(b.trend);
+        return aIndex - bIndex;
+      }
       const aValue = (a as any)[sortKey.value];
       const bValue = (b as any)[sortKey.value];
       if (aValue < bValue) return sortDirection.value === 'asc' ? -1 : 1;

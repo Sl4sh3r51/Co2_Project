@@ -43,7 +43,7 @@
         <div class="offcanvas-body p-0">
           <ul class="navbar-nav">
             <li class="nav-item" v-for="item in navigationItems" :key="item.name">
-              <router-link class="nav-link py-3 px-4" :to="item.href" @click="closeOffcanvas">{{ item.name }}</router-link>
+              <router-link class="nav-link py-3 px-4" :to="item.href" @click.native="closeOffcanvas">{{ item.name }}</router-link>
             </li>
           </ul>
         </div>
@@ -66,24 +66,41 @@ const navigationItems = ref([
 
 function handleMq(e: MediaQueryListEvent) { isDesktop.value = e.matches }
 
+function cleanupOffcanvas() {
+  document.body.style.overflow = ''
+  document.body.classList.remove('offcanvas-open')
+  document.querySelectorAll('.offcanvas-backdrop').forEach(el => el.remove())
+}
+
+function closeOffcanvas() {
+  const offcanvasEl = document.getElementById('offcanvasNavbar')
+  if (offcanvasEl) {
+    let instance = bootstrap.Offcanvas.getInstance(offcanvasEl)
+    if (!instance) instance = new bootstrap.Offcanvas(offcanvasEl)
+    instance.hide()
+  }
+}
+
 onMounted(() => {
   const mq = window.matchMedia('(min-width: 768px)')
   mq.addEventListener('change', handleMq)
   isDesktop.value = mq.matches
+
+  // Offcanvas hidden event für robustes Scroll-Unlock
+  const offcanvasEl = document.getElementById('offcanvasNavbar')
+  if (offcanvasEl) {
+    offcanvasEl.addEventListener('hidden.bs.offcanvas', cleanupOffcanvas)
+  }
 })
 onBeforeUnmount(() => {
   const mq = window.matchMedia('(min-width: 768px)')
   mq.removeEventListener('change', handleMq)
-})
-
-function closeOffcanvas() {
+  // Remove event listener
   const offcanvasEl = document.getElementById('offcanvasNavbar')
-  if (!offcanvasEl) return
-  // robust: getInstance oder neue Instanz erzeugen, falls noch nicht initialisiert
-  let instance = bootstrap.Offcanvas.getInstance(offcanvasEl)
-  if (!instance) instance = new bootstrap.Offcanvas(offcanvasEl)
-  instance.hide()
-}
+  if (offcanvasEl) {
+    offcanvasEl.removeEventListener('hidden.bs.offcanvas', cleanupOffcanvas)
+  }
+})
 </script>
 
 <style scoped>
