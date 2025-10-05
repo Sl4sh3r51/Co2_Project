@@ -57,6 +57,8 @@ Die Anwendung ist anschließend unter `http://localhost:8080/` erreichbar.
 Dieses Projekt nutzt Playwright für End-to-End-Tests.
 Die Tests decken Navigation, Modal-Interaktionen, das Absenden des Kontaktformulars und die Kernfunktionalität der Emissionstabelle (Filtern, Suchen und Datenintegrität) ab.
 
+Bevor die Tests ausgeführt werden, stelle sicher, dass die Anwendung gestartet ist. (siehe oben).
+
 Um die Testsuite auszuführen:
 
 ```sh
