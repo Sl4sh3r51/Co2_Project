@@ -7,9 +7,6 @@
             <img src="@/assets/climate-logo.png" alt="Climate Transparency Logo" class="me-3" style="height: 1.5rem; width: 1.5rem;">
             <h3 class="h6 mb-0">Climate Transparency</h3>
           </div>
-          <p class="text-muted small">
-            Eine internationale Non-Profit-Organisation, die sich für Transparenz bei CO2-Emissionen und Klimaschutzmaßnahmen einsetzt.
-          </p>
           <ul class="list-unstyled small text-muted">
             <li class="d-flex align-items-center mb-2">
               <i class="bi bi-geo-alt me-2"></i>
@@ -37,11 +34,6 @@
       </div>
       <hr class="my-3">
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-        <div class="text-muted small text-center text-md-start mb-2 mb-md-0">
-          <p class="mb-0">
-            © 2024 Climate Transparency. Alle Rechte vorbehalten. | Creative Commons Attribution 4.0
-          </p>
-        </div>
         <div class="text-muted small text-center text-md-end">
           <p class="mb-0">
             Letzte Datenaktualisierung: {{ new Date().toLocaleDateString('de-DE') }}
