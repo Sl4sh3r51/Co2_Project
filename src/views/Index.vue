@@ -16,40 +16,7 @@
       <section class="mb-5">
         <EmissionsTable />
       </section>
-
-      <section class="mb-5">
-        <div class="row g-4">
-          <div class="col-12 col-md-6">
-            <div class="card shadow-sm h-100">
-              <div class="card-header">
-                <h4 class="card-title mb-0">Datenquellen</h4>
-                <p class="card-text text-muted">Transparenz durch verlässliche Daten</p>
-              </div>
-              <div class="card-body">
-                <ul class="list-unstyled text-muted small">
-                  <li>International Energy Agency (IEA)</li>
-                  <li>Global Carbon Project</li>
-                  <li>Carbon Disclosure Project (CDP)</li>
-                  <li>UN Framework Convention on Climate Change</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="card shadow-sm h-100">
-              <div class="card-header">
-                <h4 class="card-title mb-0">Unser Auftrag</h4>
-                <p class="card-text text-muted">Transparenz fördern für eine nachhaltige Zukunft</p>
-              </div>
-              <div class="card-body">
-                <p class="card-text text-muted small">
-                  Wir glauben, dass Transparenz der Schlüssel zu wirksamem Klimaschutz ist. Durch den offenen Zugang zu verlässlichen Emissionsdaten ermöglichen wir fundierte Entscheidungen von Politik, Wirtschaft und Gesellschaft.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </main>
     <Footer/>
   </div>
