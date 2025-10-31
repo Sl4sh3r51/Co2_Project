@@ -5,7 +5,7 @@
         <img src="@/assets/climate-logo.png" alt="" class="brand-logo" />
         <div class="brand-text d-none d-sm-flex flex-column ms-2 text-truncate">
           <span class="brand-title text-white text-truncate">Climate Transparency</span>
-          <small class="text-white-50 d-none d-md-block text-truncate">Zahlen, Fakten und Trends</small>
+          <small class="text-white-0 d-none d-md-block text-truncate">Zahlen, Fakten und Trends</small>
         </div>
       </router-link>
 
