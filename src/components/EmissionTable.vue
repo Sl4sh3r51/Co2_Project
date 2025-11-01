@@ -140,8 +140,8 @@ const mockEmissionsData: EmissionData[] = [
 
 const searchTerm = ref('');
 const filterType = ref('');
-const sortKey = ref('name');
-const sortDirection = ref('asc');
+const sortKey = ref('');
+const sortDirection = ref('');
 
 const filteredData = computed(() => {
   let data = mockEmissionsData;
