@@ -22,7 +22,7 @@
           <span class="input-group-text"><i class="bi bi-search"></i></span>
         </div>
         <div class="d-flex gap-3">
-          <select v-model="filterType" class="form-select">
+          <select v-model="filterType" class="form-select" style="min-width: 160px">
             <option value="">Alle Emittenten</option>
             <option value="country">Länder</option>
             <option value="company">Unternehmen</option>
